@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Car sheet</title>
+        <link rel="stylesheet" href="./src/css/main.css" />
+    </head>
+    <body>
+        <h1 class="title">Car Information Board</h1>
+        <div class="wrapper" id="wrapper">
+            <table class="table" id="table">
+                <tr>
+                    <th>Name</th>
+                    <th>Date</th>
+                    <th>Country</th>
+                    <th>Selling</th>
+                    <th>Photo</th>
+                </tr>
+                <tr id="tr_input">
+                    <!-- <td id="name">Audi</td>
+                    <td id="date">2008</td>
+                    <td id="country">Germany</td>
+                    <td id="selling">Sell</td>
+                    <td class="photo" id="photo"><img id="image" src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/23/Audi_A5_Sportback_F5_IMG_2835.jpg/280px-Audi_A5_Sportback_F5_IMG_2835.jpg" alt="" /></td> -->
+                </tr>
+            </table>
+            <form action="#" method="get" id="form" class="form">
+                <input required maxlength="30" class="form__input" type="text" placeholder="Enter car name" id="car__name"/>
+                <input required maxlength="30" class="form__input" type="text" placeholder="Enter date" id="car__date"/>
+                <input required maxlength="30" class="form__input" type="text" placeholder="Enter country" id="car__country"/>
+                <select class="form__select" required name="status" id="form__select">
+                    <option value="Sell" id="sell">Sell</option>
+                    <option value="Sold" id="sold">Sold</option>
+                </select>
+                <input required class="form__input" type="url" placeholder="Enter a link with photo" id="car__image-url"/>
+                <button class="form__btn" type="submit" id="form__button">Create a new entry</button>
+            </form>
+        </div>
+
+        <script src="./src/js/main.js"></script>
+    </body>
+</html>
