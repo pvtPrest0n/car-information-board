@@ -10,6 +10,7 @@ The Version 0.1 is the very first version that presents individual layout with t
     <li>This version has table layout with the following information: Name, Date, Country, Selling status and Photo</li>
     <li>There are inputs such as for name, date, country, selling status and photo to create entries</li>
     <li>localStorage is implemented to the application so all entered data is saved locally in browser.</li>
+    <li>Count of posted entries</li>
   </ul>
 
 <h1>(Version 0.2)</h1>
