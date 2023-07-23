@@ -1,4 +1,4 @@
-# car-information-board
+# car-information-board(Renamed to Car Market)
 <h1>(Version 0.1)</h1>
 
 <img src="https://i.imgur.com/YBmFoRT.png">
