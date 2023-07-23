@@ -19,7 +19,7 @@ The Version 0.1 is the very first version that presents individual layout with t
 With this version of the app the following chages were made:
   <ul>
     <li>The whole layout was changed from table to cards using Bootstrap library</li>
-    <li>Added post count, so it counts how much cars are published</li>
+    <li>Added post count, it counts how much cars are published</li>
     <li>Added date and time string that indicates when car post was published</li>
     <li>Added modal with inputs</li>
     <li>Other minor style changes</li>
