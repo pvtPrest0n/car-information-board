@@ -6,25 +6,61 @@ if (data !== "" && data !== null) {
 }
 
 function createNewEntry(obj) {
-    const table = document.getElementById("table");
+    const row = document.getElementById("row");
+
+    const col = document.createElement("div");
+    col.classList.add("col");
+    col.setAttribute("id", "col__element");
+
+    row.append(col);
+
+    const card = document.createElement("div");
+    card.classList.add("card", "h-100", "border-primary", "mb-3");
+    card.setAttribute("id", "card__element");
+
+    col.append(card);
+
     const img = document.createElement("img");
-    img.style["width"] = "150px";
     img.setAttribute("src", "");
-    const row = table.insertRow(1);
-    const cell1 = row.insertCell(0);
-    const cell2 = row.insertCell(1);
-    const cell3 = row.insertCell(2);
-    const cell4 = row.insertCell(3);
-    const cell5 = row.insertCell(4);
+    img.setAttribute("alt", "photo");
+    img.classList.add("card-img-top");
+    card.append(img);
 
-    cell5.append(img);
-    cell5.style["width"] = "150px";
+    const cardBody = document.createElement("div");
+    cardBody.classList.add("card-body");
+    card.append(cardBody);
 
-    cell1.textContent = obj.name;
-    cell2.textContent = obj.date;
-    cell3.textContent = obj.country;
-    cell4.textContent = obj.select;
+    const ul = document.createElement("ul");
+    ul.classList.add("description");
+    cardBody.append(ul);
+
+    const li1 = document.createElement("li");
+    const li2 = document.createElement("li");
+    const li3 = document.createElement("li");
+    const li4 = document.createElement("li");
+
+    const liArray = [li1, li2, li3, li4];
+    liArray.forEach((el) => {
+        el.classList.add("description__items");
+        ul.append(el);
+    });
+
+    const postInfo = document.createElement("div");
+    postInfo.classList.add("post-info");
+    postInfo.textContent = "Posted:";
+    card.append(postInfo);
+
+    const spanDate = document.createElement("span");
+    spanDate.textContent = "20/07/2023";
+    postInfo.append(spanDate);
+
+    li1.textContent = "Name: " + obj.name;
+    li2.textContent = "Date: " + obj.date;
+    li3.textContent = "Country: " + obj.country;
+    li4.textContent = "Cost: " + obj.cost + " $";
     img.src = obj.link;
+    spanDate.textContent = obj.time;
+
 }
 
 for (const entry of carList) {
@@ -37,15 +73,24 @@ document.getElementById("form").addEventListener("submit", function (event) {
     const carNameInput = document.getElementById("car__name");
     const dateInput = document.getElementById("car__date");
     const countryInput = document.getElementById("car__country");
-    const selectInput = document.getElementById("form__select");
+    const costInput = document.getElementById("car__cost");
     const linkInput = document.getElementById("car__image-url");
+
+    const createDate = new Date();
+    const options = {
+        hour: "numeric",
+        minute: "numeric",
+    };
+
+    const currentDate = createDate.toLocaleDateString("ru-RU", options);
 
     const entryObject = {
         name: carNameInput.value,
         date: dateInput.value,
         country: countryInput.value,
-        select: selectInput.value,
+        cost: costInput.value,
         link: linkInput.value,
+        time: currentDate,
     };
 
     carList.push(entryObject);
@@ -56,5 +101,17 @@ document.getElementById("form").addEventListener("submit", function (event) {
     carNameInput.value = "";
     dateInput.value = "";
     countryInput.value = "";
+    costInput.value = "";
     linkInput.value = "";
+
+    getCounter(carList);
+
+    location.reload();
 });
+
+function getCounter(arr) {
+    const counterNumber = document.getElementById("counter__number");
+    const arrayNumber = arr.length;
+    counterNumber.textContent = arrayNumber;
+}
+getCounter(carList);
